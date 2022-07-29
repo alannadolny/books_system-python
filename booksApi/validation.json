@@ -1,0 +1,29 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": [
+      "title",
+      "author",
+      "description",
+      "date"
+    ],
+    "properties": {
+      "title": {
+        "bsonType": "string",
+        "description": "must be a string and is required"
+      },
+      "author": {
+        "bsonType": "string",
+        "description": "must be a string and is not required"
+      },
+      "description": {
+        "bsonType": "string",
+        "description": "must be a string and is required"
+      },
+      "date": {
+        "bsonType": "string",
+        "description": "must be a date and is required"
+      }
+    }
+  }
+}
