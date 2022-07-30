@@ -54,12 +54,10 @@ def delete_book(id_to_delete):
 def update_book(id_to_update):
     try:
         content_type = request.headers.get('Content-Type')
-        if content_type == 'application/json':
-            client.books.collection.find_one_and_update({"_id": ObjectId(id_to_update)},
-                                                        {'$set': request.json})
-            return str(request.json)
-        else:
-            return 'Content-Type not supported!'
+        data = request.json if content_type == 'application/json' else json.loads(json.dumps(request.form))
+        client.books.collection.find_one_and_update({"_id": ObjectId(id_to_update)},
+                                                    {'$set': data})
+        return str(data)
     except ():
         return abort(500)
 
