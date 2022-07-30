@@ -8,6 +8,10 @@
       "date"
     ],
     "properties": {
+      "image": {
+        "bsonType": "string",
+        "description": "must be a string"
+      },
       "title": {
         "bsonType": "string",
         "description": "must be a string and is required"

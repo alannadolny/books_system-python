@@ -1,6 +1,7 @@
 from flask import Flask, request, abort
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+from bson import json_util
 import json
 
 client = MongoClient('mongodb://localhost:27017/')
@@ -12,8 +13,8 @@ app = Flask(__name__)
 @app.route("/books", methods=['GET'])
 def get_books():
     try:
-        documents = client.books.collection.find({})
-        return str(list(documents))
+        documents = client.books.collection.find()
+        return {"data": list(map(lambda x: json.loads(json_util.dumps(x)), list(documents)))}
     except ():
         return abort(500)
 
