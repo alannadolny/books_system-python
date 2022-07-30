@@ -19,17 +19,24 @@ def get_books():
         return abort(500)
 
 
+@app.route('/books/<book_id>', methods=['GET'])
+def get_book(book_id):
+    try:
+        document = client.books.collection.find_one({'_id': ObjectId(book_id)})
+        to_return = {"data": json.loads(json_util.dumps(document))} if document is not None else {"data": "not found"}
+        return to_return
+    except ():
+        return abort(500)
+
+
 @app.route("/books", methods=['POST'])
 def post_book():
     try:
         content_type = request.headers.get('Content-Type')
-        if content_type == 'application/json':
-            data = request.json
-            inserted_id = client.books.collection.insert_one(data).inserted_id
-            data['_id'] = str(inserted_id)
-            return data
-        else:
-            return 'Content-Type not supported!'
+        data = request.json if content_type == 'application/json' else json.loads(json.dumps(request.form))
+        inserted_id = client.books.collection.insert_one(data).inserted_id
+        data['_id'] = str(inserted_id)
+        return data
     except ():
         return abort(500)
 

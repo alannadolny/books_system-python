@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="content">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.title.label() }}
+        {{ form.title() }} <br>
+        {{ form.author.label() }}
+        {{ form.author() }} <br>
+        {{ form.description.label() }}
+        {{ form.description() }} <br>
+        {{ form.image.label() }}
+        {{ form.image() }} <br>
+        {{ form.date.label() }}
+        {{ form.date() }}
+        <button type="submit">Add book</button>
+    </form>
+</div>
+{% endblock %}

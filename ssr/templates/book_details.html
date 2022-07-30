@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="content">
+    <div id="img">
+        <img src="{{ book.image }}" alt="cover of the book"/>
+    </div>
+    <div id="info">
+        <p>Title: {{ book.title }}</p>
+        <p>Author: {{ book.author }}</p>
+        <p>Release data: {{ book.date }}</p>
+        <p>Description: {{ book.description }}</p>
+    </div>
+    <div id="buttons">
+        <a href="{{ url_for('books_list') }}">undo</a>
+        <a>edit</a>
+    </div>
+</div>
+{% endblock %}
