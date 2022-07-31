@@ -13,7 +13,7 @@
 Projekt można uruchomić za pomocą dockera. W tym celu należy znaleźć się w folderze z projektem i wpisać polecenie:
 
 ```
-docker compose up --build
+docker-compose up --build
 ```
 
 Spowoduje to uruchomienie api, frontendu oraz bazy mongoDB (bez persystencji). Z projektu udostępniony został jednynie frontend pod portem 8080.
