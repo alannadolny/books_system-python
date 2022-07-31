@@ -1,7 +1,8 @@
-from flask import Flask, render_template, url_for, redirect, flash
+from flask import Flask, render_template, url_for, redirect, flash, request
 import requests
 import forms
 from datetime import datetime
+import filters
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "219743534356223291801796237134"
@@ -10,7 +11,20 @@ app.config['SECRET_KEY'] = "219743534356223291801796237134"
 @app.route('/')
 def books_list():
     response = requests.get('http://localhost:5000/books')
-    return render_template("main.html", books=response.json()['data'])
+    filtered_data = filters.get_filtered_data(response.json()['data'],
+                                              {'author': request.args.get('author', default=None),
+                                               'sortBy': request.args.get('sortBy', default='title'),
+                                               'name': request.args.get('name', default=None),
+                                               'from': request.args.get('dateFrom', default=None),
+                                               'to': request.args.get('dateTo', default=None)})
+    filter_form = forms.FiltersForm(author=request.args.get('author', default=None),
+                                    sortBy=request.args.get('sortBy', default=None),
+                                    name=request.args.get('name', default=''),
+                                    dateFrom=filters.return_date(request.args.get('dateFrom', default=None)),
+                                    dateTo=filters.return_date(request.args.get('dateTo', default=None)))
+    filter_form.author.choices = filters.get_authors(response.json()['data'])
+    filter_form.sortBy.choices = [None, 'author', 'title']
+    return render_template("main.html", books=filtered_data, form=filter_form)
 
 
 @app.route('/details/<book_id>')
@@ -46,6 +60,12 @@ def edit_book(book_id):
         requests.put(f'http://localhost:5000/books/{book_id}', book_form.data)
         return redirect(url_for('books_list'))
     return render_template("book_form.html", form=book_form, action='Edit')
+
+
+@app.route('/delete/<book_id>')
+def delete_book(book_id):
+    requests.delete(f'http://localhost:5000/books/{book_id}')
+    return redirect(url_for('books_list'))
 
 
 if __name__ == '__main__':

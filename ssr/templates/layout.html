@@ -5,9 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>book system</title>
 </head>
 <body>
+<nav>NAVBAR</nav>
+{% block filters %}{% endblock %}
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 {% for el in messages %}
@@ -19,4 +21,5 @@
 {% endwith %}
 {% block content %}{% endblock %}
 </body>
+<footer>FOOTER</footer>
 </html>

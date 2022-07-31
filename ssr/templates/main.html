@@ -1,4 +1,27 @@
 {% extends "layout.html" %}
+
+{% block filters %}
+<div>
+    <form>
+        {{ form.hidden_tag() }}
+        <div>Filter by author:
+            {{ form.author() }}
+        </div>
+        <div> Filter by date
+            <div>
+                From: {{ form.dateFrom() }}
+                To: {{ form.dateTo() }}
+            </div>
+        </div>
+        <div> Find by name: {{ form.name() }}
+        </div>
+        <div> Sort by: {{ form.sortBy() }}
+        </div>
+        <button type="submit">Apply filters</button>
+    </form>
+</div>
+{% endblock %}
+
 {% block content %}
 <div id="content">
     <a href="/form/add">Add new book</a>
@@ -6,10 +29,13 @@
     <div class="book">
         <a href="{{ url_for('book_details', book_id=book._id['$oid']) }}"> <img src="{{ book.image }}"
                                                                                 alt="cover of the book">
-            <div>Title: {{ book.title }}</div>
-            <div>Author: {{book.author}}</div>
-        </a>
+            <div class="info">
+                <div>Title: {{ book.title }}</div>
+                <div>Author: {{book.author}}</div>
+            </div>
 
+        </a>
+        <a href="{{ url_for('delete_book', book_id=book._id['$oid']) }}">Delete</a>
     </div>
     {% endfor %}
 </div>
