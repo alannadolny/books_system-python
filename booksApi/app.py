@@ -15,7 +15,7 @@ def get_books():
     try:
         documents = client.books.collection.find()
         return {"data": list(map(lambda x: json.loads(json_util.dumps(x)), list(documents)))}
-    except ():
+    except:
         return abort(500)
 
 
@@ -25,7 +25,7 @@ def get_book(book_id):
         document = client.books.collection.find_one({'_id': ObjectId(book_id)})
         to_return = {"data": json.loads(json_util.dumps(document))} if document is not None else {"data": "not found"}
         return to_return
-    except ():
+    except:
         return abort(500)
 
 
@@ -37,7 +37,7 @@ def post_book():
         inserted_id = client.books.collection.insert_one(data).inserted_id
         data['_id'] = str(inserted_id)
         return data
-    except ():
+    except:
         return abort(500)
 
 
@@ -46,7 +46,7 @@ def delete_book(id_to_delete):
     try:
         client.books.collection.delete_one({'_id': ObjectId(id_to_delete)})
         return {'deletedId': id_to_delete}
-    except ():
+    except:
         return abort(500)
 
 
@@ -58,7 +58,7 @@ def update_book(id_to_update):
         client.books.collection.find_one_and_update({"_id": ObjectId(id_to_update)},
                                                     {'$set': data})
         return str(data)
-    except ():
+    except:
         return abort(500)
 
 

@@ -5,6 +5,25 @@ body {
   position: relative;
 }
 
+body .alert {
+  width: 90vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #49a849;
+  color: white;
+  margin: auto;
+  height: 100px;
+  font-weight: 500;
+  font-size: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 body nav {
   z-index: 3;
   position: -webkit-sticky;
