@@ -1,11 +1,17 @@
+from pydoc import cli
 from flask import Flask, request, abort
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from bson import json_util
 import json
 
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb://mongo:27017/')
 validator = json.load(open('validation.json'))
+
+myDB = client['books']
+if 'collection' not in myDB.list_collection_names():
+    myDB.create_collection('collection')
+
 client.books.command('collMod', 'collection', validator=validator, validationLevel='moderate')
 app = Flask(__name__)
 
@@ -63,4 +69,4 @@ def update_book(id_to_update):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
