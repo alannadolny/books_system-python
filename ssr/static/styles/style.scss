@@ -1,0 +1,204 @@
+@mixin button-styles {
+  margin-top: 20px;
+  top: 10px;
+  position: relative;
+  z-index: 2;
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, 'Segoe UI', 'Liberation Sans',
+    sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    background-color: #b3d3ea;
+    color: #2c5777;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+  }
+
+  &:active {
+    background-color: #a0c7e4;
+    box-shadow: none;
+    color: #2c5777;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  min-height: 100vh;
+  position: relative;
+  nav {
+    z-index: 3;
+    position: sticky;
+    top: 0;
+    background-color: rgb(93, 123, 212);
+    width: 100vw;
+    height: 80px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    div {
+      margin: 0 10px 0 10px;
+      font-size: 40px;
+      color: white;
+    }
+    a {
+      margin: 0 20px 0 20px;
+      font-size: 20px;
+      text-decoration: none;
+      color: white;
+      &:hover {
+        color: purple;
+      }
+    }
+  }
+
+  #content-details {
+    display: flex;
+    #img {
+      img {
+        width: 300px;
+        margin: 20px;
+      }
+    }
+    #right-content {
+      #info {
+        font-size: 20px;
+        margin-top: 100px;
+      }
+      #buttons {
+        a {
+          @include button-styles();
+          width: 100px;
+        }
+      }
+    }
+  }
+
+  #content-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 50vw;
+      button {
+        @include button-styles();
+      }
+    }
+  }
+
+  #filters {
+    -webkit-box-shadow: 4px 1px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 4px 1px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: 4px 1px 24px 0px rgba(66, 68, 90, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+    margin: auto;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 15px;
+    div {
+      margin-top: 10px;
+    }
+    button {
+      @include button-styles();
+      left: 100px;
+    }
+  }
+
+  #content {
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .book {
+      width: 90vw;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      .delete-button {
+        @include button-styles();
+        right: 10px;
+        width: 100px;
+        height: 40px;
+      }
+      -webkit-box-shadow: 8px 8px 24px -14px rgba(66, 68, 90, 1);
+      -moz-box-shadow: 8px 8px 24px -14px rgba(66, 68, 90, 1);
+      box-shadow: 8px 8px 24px -14px rgba(66, 68, 90, 1);
+      background-color: rgb(127, 157, 224);
+      margin-top: 10px;
+      a {
+        cursor: pointer;
+        width: 90vw;
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        color: black;
+        img {
+          width: 150px;
+          height: 200px;
+          margin: 10px;
+        }
+        .info {
+          text-decoration: none;
+          margin: 10px;
+          p {
+            text-decoration: none;
+            font-size: 20px;
+            margin: 0;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    width: 100vw;
+    height: 80px;
+    border: 1px solid black;
+    background-color: rgb(93, 123, 212);
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    a {
+      margin-left: 10px;
+      text-decoration: none;
+      color: white;
+
+      &:hover {
+        color: purple;
+      }
+    }
+  }
+}

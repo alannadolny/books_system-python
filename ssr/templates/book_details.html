@@ -1,18 +1,19 @@
-{% extends "layout.html" %}
-{% block content %}
-<div id="content">
-    <div id="img">
-        <img src="{{ book.image }}" alt="cover of the book"/>
-    </div>
+{% extends "layout.html" %} {% block content %}
+<div id="content-details">
+  <div id="img">
+    <img src="{{ book.image }}" alt="cover of the book" />
+  </div>
+  <div id="right-content">
     <div id="info">
-        <p>Title: {{ book.title }}</p>
-        <p>Author: {{ book.author }}</p>
-        <p>Release data: {{ book.date }}</p>
-        <p>Description: {{ book.description }}</p>
+      <p><strong>Title:</strong> {{ book.title }}</p>
+      <p><strong>Author:</strong> {{ book.author }}</p>
+      <p><strong>Release date:</strong> {{ book.date }}</p>
+      <p><strong>Description:</strong> {{ book.description }}</p>
     </div>
     <div id="buttons">
-        <a href="{{ url_for('books_list') }}">undo</a>
-        <a href="{{ url_for('edit_book', book_id=book._id['$oid']) }}">edit</a>
+      <a href="{{ url_for('books_list') }}">undo</a>
+      <a href="{{ url_for('edit_book', book_id=book._id['$oid']) }}">edit</a>
     </div>
+  </div>
 </div>
 {% endblock %}

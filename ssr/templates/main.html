@@ -1,42 +1,36 @@
-{% extends "layout.html" %}
-
-{% block filters %}
-<div>
+{% extends "layout.html" %} {% block filters %}
+<div id="filters">
+  <div>
     <form>
-        {{ form.hidden_tag() }}
-        <div>Filter by author:
-            {{ form.author() }}
-        </div>
-        <div> Filter by date
-            <div>
-                From: {{ form.dateFrom() }}
-                To: {{ form.dateTo() }}
-            </div>
-        </div>
-        <div> Find by name: {{ form.name() }}
-        </div>
-        <div> Sort by: {{ form.sortBy() }}
-        </div>
-        <button type="submit">Apply filters</button>
+      {{ form.hidden_tag() }}
+      <div>Filter by author: {{ form.author() }}</div>
+      <div>
+        Filter by date
+        <div>From: {{ form.dateFrom() }} To: {{ form.dateTo() }}</div>
+      </div>
+      <div>Find by name: {{ form.name() }}</div>
+      <div>Sort by: {{ form.sortBy() }}</div>
+      <button type="submit">Apply filters</button>
     </form>
+  </div>
 </div>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <div id="content">
-    <a href="/form/add">Add new book</a>
-    {% for book in books %}
-    <div class="book">
-        <a href="{{ url_for('book_details', book_id=book._id['$oid']) }}"> <img src="{{ book.image }}"
-                                                                                alt="cover of the book">
-            <div class="info">
-                <div>Title: {{ book.title }}</div>
-                <div>Author: {{book.author}}</div>
-            </div>
-
-        </a>
-        <a href="{{ url_for('delete_book', book_id=book._id['$oid']) }}">Delete</a>
-    </div>
-    {% endfor %}
+  {% for book in books %}
+  <div class="book">
+    <a href="{{ url_for('book_details', book_id=book._id['$oid']) }}">
+      <img src="{{ book.image }}" alt="cover of the book" />
+      <div class="info">
+        <p><strong>Title:</strong> {{ book.title }}</p>
+        <p><strong>Author:</strong> {{book.author}}</p>
+      </div>
+    </a>
+    <a
+      class="delete-button"
+      href="{{ url_for('delete_book', book_id=book._id['$oid']) }}"
+      >Delete</a
+    >
+  </div>
+  {% endfor %}
 </div>
 {% endblock %}

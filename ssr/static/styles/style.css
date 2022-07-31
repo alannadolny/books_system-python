@@ -1,0 +1,409 @@
+body {
+  margin: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  min-height: 100vh;
+  position: relative;
+}
+
+body nav {
+  z-index: 3;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #5d7bd4;
+  width: 100vw;
+  height: 80px;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body nav div {
+  margin: 0 10px 0 10px;
+  font-size: 40px;
+  color: white;
+}
+
+body nav a {
+  margin: 0 20px 0 20px;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
+
+body nav a:hover {
+  color: purple;
+}
+
+body #content-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body #content-details #img img {
+  width: 300px;
+  margin: 20px;
+}
+
+body #content-details #right-content #info {
+  font-size: 20px;
+  margin-top: 100px;
+}
+
+body #content-details #right-content #buttons a {
+  margin-top: 20px;
+  top: 10px;
+  position: relative;
+  z-index: 2;
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+          box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, 'Segoe UI', 'Liberation Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  width: 100px;
+}
+
+body #content-details #right-content #buttons a:hover, body #content-details #right-content #buttons a:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+body #content-details #right-content #buttons a:focus {
+  -webkit-box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+          box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+body #content-details #right-content #buttons a:active {
+  background-color: #a0c7e4;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #2c5777;
+}
+
+body #content-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+}
+
+body #content-form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50vw;
+}
+
+body #content-form form button {
+  margin-top: 20px;
+  top: 10px;
+  position: relative;
+  z-index: 2;
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+          box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, 'Segoe UI', 'Liberation Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+body #content-form form button:hover, body #content-form form button:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+body #content-form form button:focus {
+  -webkit-box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+          box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+body #content-form form button:active {
+  background-color: #a0c7e4;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #2c5777;
+}
+
+body #filters {
+  -webkit-box-shadow: 4px 1px 24px 0px #42445a;
+  box-shadow: 4px 1px 24px 0px #42445a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90vw;
+  margin: auto;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 15px;
+}
+
+body #filters div {
+  margin-top: 10px;
+}
+
+body #filters button {
+  margin-top: 20px;
+  top: 10px;
+  position: relative;
+  z-index: 2;
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+          box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, 'Segoe UI', 'Liberation Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  left: 100px;
+}
+
+body #filters button:hover, body #filters button:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+body #filters button:focus {
+  -webkit-box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+          box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+body #filters button:active {
+  background-color: #a0c7e4;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #2c5777;
+}
+
+body #content {
+  padding-bottom: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body #content .book {
+  width: 90vw;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 8px 8px 24px -14px #42445a;
+  box-shadow: 8px 8px 24px -14px #42445a;
+  background-color: #7f9de0;
+  margin-top: 10px;
+}
+
+body #content .book .delete-button {
+  margin-top: 20px;
+  top: 10px;
+  position: relative;
+  z-index: 2;
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+          box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, 'Segoe UI', 'Liberation Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  right: 10px;
+  width: 100px;
+  height: 40px;
+}
+
+body #content .book .delete-button:hover, body #content .book .delete-button:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+body #content .book .delete-button:focus {
+  -webkit-box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+          box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+body #content .book .delete-button:active {
+  background-color: #a0c7e4;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #2c5777;
+}
+
+body #content .book a {
+  cursor: pointer;
+  width: 90vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-decoration: none;
+  color: black;
+}
+
+body #content .book a img {
+  width: 150px;
+  height: 200px;
+  margin: 10px;
+}
+
+body #content .book a .info {
+  text-decoration: none;
+  margin: 10px;
+}
+
+body #content .book a .info p {
+  text-decoration: none;
+  font-size: 20px;
+  margin: 0;
+  color: white;
+}
+
+body footer {
+  width: 100vw;
+  height: 80px;
+  border: 1px solid black;
+  background-color: #5d7bd4;
+  position: absolute;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body footer a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+body footer a:hover {
+  color: purple;
+}
+/*# sourceMappingURL=style.css.map */
